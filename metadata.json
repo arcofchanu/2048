@@ -1,0 +1,5 @@
+{
+  "name": "2048",
+  "description": "A fully functional, responsive 2048 game with a sleek, minimalist monochrome theme. Built with React, TypeScript, and Tailwind CSS, it offers smooth animations and both keyboard and touch controls.",
+  "requestFramePermissions": []
+}

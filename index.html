@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2048</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Electrolize', sans-serif;
+      }
+      .text-glow {
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+      }
+      @keyframes spawn {
+        0% { transform: scale(0.5); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+      .animate-spawn {
+        animation: spawn 0.2s ease-in-out;
+      }
+      @keyframes merge {
+        0% { transform: scale(0.8); }
+        80% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+      }
+      .animate-merge {
+        animation: merge 0.2s ease-out;
+      }
+      @keyframes score-milestone-pulse {
+        0%, 100% {
+          transform: scale(1);
+          box-shadow: none;
+        }
+        50% {
+          transform: scale(1.1);
+          box-shadow: 0 0 20px rgba(124, 58, 237, 0.7);
+        }
+      }
+      .animate-score-milestone {
+        animation: score-milestone-pulse 0.5s ease-in-out;
+      }
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in-up {
+        animation: fade-in-up 0.6s ease-out forwards;
+      }
+      @keyframes background-shimmer {
+        from {
+          background-position: 200% 0;
+        }
+        to {
+          background-position: -200% 0;
+        }
+      }
+      .animate-shimmer {
+        animation: background-shimmer 3s linear infinite;
+        background-size: 200% 100%;
+      }
+      @keyframes detailed-shockwave-kf {
+        from {
+          transform: scale(0.1);
+          opacity: 0.8;
+        }
+        to {
+          transform: scale(1.1);
+          opacity: 0;
+        }
+      }
+      .shockwave-ring {
+        position: absolute;
+        width: 80vmin;
+        height: 80vmin;
+        border-radius: 50%;
+        background-image: radial-gradient(
+          circle,
+          transparent 0%,
+          transparent 68%,
+          rgba(216, 180, 254, 0.5) 70%,
+          #a855f7 72%,
+          rgba(216, 180, 254, 0.5) 74%,
+          transparent 76%,
+          transparent 100%
+        );
+        box-shadow: 0 0 40px #a855f7;
+        animation: detailed-shockwave-kf 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        opacity: 0;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "react": "https://esm.sh/react@^19.1.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/"
+  }
+}
+</script>
+<script src="https://cdn.babylonjs.com/babylon.js"></script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
