@@ -17,11 +17,13 @@ const ScoreBox: React.FC<{ title: string; score: number; isMilestone?: boolean }
 
 const Header: React.FC<HeaderProps> = ({ score, bestScore, onRestart, showScoreMilestone }) => {
   return (
-    <div className="flex justify-between items-center mb-6">
+    <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
       <h1 className="text-6xl md:text-7xl text-neutral-100 text-glow">2048</h1>
-      <div className="flex items-center space-x-2">
-        <ScoreBox title="Score" score={score} isMilestone={showScoreMilestone} />
-        <ScoreBox title="Best" score={bestScore} />
+      <div className="flex w-full sm:w-auto items-center justify-between sm:justify-start sm:space-x-2">
+        <div className="flex items-center space-x-2">
+            <ScoreBox title="Score" score={score} isMilestone={showScoreMilestone} />
+            <ScoreBox title="Best" score={bestScore} />
+        </div>
         <Button onClick={onRestart}>New Game</Button>
       </div>
     </div>
